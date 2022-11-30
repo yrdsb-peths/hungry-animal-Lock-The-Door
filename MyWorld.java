@@ -27,6 +27,9 @@ public class MyWorld extends World
     private void prepare()
     {
         animal animal = new animal();
-        addObject(animal,42,209);
+        addObject(animal,getWidth()/2,getHeight()-30);
+        food food = new food();
+        addObject(food,getWidth()/2,0);
+        food.respawn();
     }
 }

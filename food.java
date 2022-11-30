@@ -14,6 +14,14 @@ public class food extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        setLocation(getX(), getY() + 5);
+        
+        if (isAtEdge())
+            respawn();
     }    
+    
+    public void respawn()
+    {
+        setLocation(Greenfoot.getRandomNumber(getWorld().getWidth()), 0);
+    }
 }
