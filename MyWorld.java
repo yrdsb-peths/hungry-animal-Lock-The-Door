@@ -20,15 +20,16 @@ public class MyWorld extends World
         prepare();
     }
 
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
-        animal animal = new animal();
+        Animal animal = new Animal();
         addObject(animal,getWidth()/2,getHeight()-30);
-        food food = new food();
+        Food food = new Food();
         addObject(food,getWidth()/2,0);
         food.respawn();
     }

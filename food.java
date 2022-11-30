@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class food extends Actor
+public class Food extends Actor
 {
     /**
      * Act - do whatever the food wants to do. This method is called whenever
@@ -16,7 +16,8 @@ public class food extends Actor
     {
         setLocation(getX(), getY() + 5);
         
-        if (isAtEdge())
+        // Player gets collect apple and gets point
+        if (isTouching(Animal.class))
             respawn();
     }    
     
