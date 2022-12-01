@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Animal extends Actor
 {
-    int SPEED = 5;
+    int SPEED = 10;
     
     boolean facingRight = true;
     
