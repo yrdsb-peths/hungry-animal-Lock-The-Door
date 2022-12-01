@@ -16,13 +16,22 @@ public class Food extends Actor
     {
         setLocation(getX(), getY() + 5);
         
-        // Player gets collect apple and gets point
+        // Player eats apple and gets point
         if (isTouching(Animal.class))
-            respawn();
+            eat();
+
+        // Player misses apple (Game Over)
+        if (isAtEdge())
+            Greenfoot.setWorld(new GameOver());
     }    
     
-    public void respawn()
+    public void eat()
     {
-        setLocation(Greenfoot.getRandomNumber(getWorld().getWidth()), 0);
+        // respawn apple at top
+        setLocation(Greenfoot.getRandomNumber(getWorld().getWidth()), 1);
+
+        // increment score
+        Game gameWorld = (Game) getWorld();
+        gameWorld.incrementScore();
     }
 }
