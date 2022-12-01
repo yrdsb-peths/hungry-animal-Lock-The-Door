@@ -6,14 +6,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MyWorld extends World
+public class Game extends World
 {
+    int score = 0;
+    Label scoreLabel = new Label(0, 50);
 
     /**
      * Constructor for objects of class MyWorld.
      * 
      */
-    public MyWorld()
+    public Game()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
@@ -30,7 +32,19 @@ public class MyWorld extends World
         Animal animal = new Animal();
         addObject(animal,getWidth()/2,getHeight()-30);
         Food food = new Food();
-        addObject(food,getWidth()/2,0);
-        food.respawn();
+        addObject(food,Greenfoot.getRandomNumber(getWidth()),0);
+        addObject(scoreLabel,200,174);
+        scoreLabel.setFillColor(Color.BLACK);
+        scoreLabel.setLocation(20,25);
+    }
+
+    public void incrementScore()
+    {
+        incrementScore(1);
+    }
+    public void incrementScore(int increment)
+    {
+        score += increment;
+        scoreLabel.setValue(score);
     }
 }
