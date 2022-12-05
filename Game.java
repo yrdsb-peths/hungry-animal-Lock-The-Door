@@ -34,7 +34,6 @@ public class Game extends World
         Food food = new Food();
         addObject(food,Greenfoot.getRandomNumber(getWidth()),0);
         addObject(scoreLabel,200,174);
-        scoreLabel.setFillColor(Color.BLACK);
         scoreLabel.setLocation(20,25);
     }
 
@@ -46,5 +45,14 @@ public class Game extends World
     {
         score += increment;
         scoreLabel.setValue(score);
+
+        // reposition text
+        int offset = String.valueOf(score).length() * 15;
+        scoreLabel.setLocation(offset+5,25);
+    }
+
+    public void endGame()
+    {
+        Greenfoot.setWorld(new GameOver(score));
     }
 }

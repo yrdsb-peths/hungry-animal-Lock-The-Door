@@ -22,7 +22,7 @@ public class Food extends Actor
 
         // Player misses apple (Game Over)
         if (isAtEdge())
-            Greenfoot.setWorld(new GameOver());
+            ((Game)getWorld()).endGame();
     }    
     
     public void eat()
@@ -31,7 +31,6 @@ public class Food extends Actor
         setLocation(Greenfoot.getRandomNumber(getWorld().getWidth()), 1);
 
         // increment score
-        Game gameWorld = (Game) getWorld();
-        gameWorld.incrementScore();
+        ((Game)getWorld()).incrementScore();
     }
 }
