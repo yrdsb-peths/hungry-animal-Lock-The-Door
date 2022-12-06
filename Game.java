@@ -47,8 +47,8 @@ public class Game extends World
         scoreLabel.setValue(score);
 
         // reposition text
-        int offset = String.valueOf(score).length() * 15;
-        scoreLabel.setLocation(offset+5,25);
+        int offset = String.valueOf(score).length() * 10;
+        scoreLabel.setLocation(offset+10,25);
     }
 
     public void endGame()
