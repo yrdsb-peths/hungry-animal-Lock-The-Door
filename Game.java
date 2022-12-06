@@ -32,7 +32,7 @@ public class Game extends World
         Animal animal = new Animal();
         addObject(animal,getWidth()/2,getHeight()-30);
         Food food = new Food();
-        addObject(food,Greenfoot.getRandomNumber(getWidth()),0);
+        addObject(food,Greenfoot.getRandomNumber(getWidth()-1)+1,0);
         addObject(scoreLabel,200,174);
         scoreLabel.setLocation(20,25);
     }
