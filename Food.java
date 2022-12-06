@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Food extends Actor
 {
-    GreenfootSound eatSound = new GreenfootSound("./sounds/elephantcub.mp3");
+    GreenfootSound eatSound = new GreenfootSound("sounds/elephantcub.mp3");
 
     /**
      * Act - do whatever the food wants to do. This method is called whenever

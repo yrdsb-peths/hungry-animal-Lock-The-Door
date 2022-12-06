@@ -9,32 +9,50 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Animal extends Actor
 {
     int SPEED = 10;
+    GreenfootImage[] animalAnimation = new GreenfootImage[8];
     
-    boolean facingRight = true;
+    int animationFrame = 0;
+    boolean isFacingRight = true;
+
+    public Animal()
+    {
+        for (int i=0; i<animalAnimation.length; i++)
+        {
+            animalAnimation[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+        }
+    }
     
     /**
      * Act - do whatever the animal wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
+    public void act()
     {
         if (Greenfoot.isKeyDown("left"))
         {
             move(-SPEED);
-            if (facingRight)
+            if (isFacingRight)
                 flip();
         }
         if (Greenfoot.isKeyDown("right"))
         {
             move(SPEED);
-            if (!facingRight)
+            if (!isFacingRight)
                 flip();
         }
-    }    
+
+        // next frame
+        setImage(animalAnimation[animationFrame++]);
+        if (animationFrame >= animalAnimation.length)
+            animationFrame = 0;
+    }
     
     private void flip()
     {
-        getImage().mirrorHorizontally();
-        facingRight = !facingRight;
+        for (int i=0; i<animalAnimation.length; i++)
+        {
+            animalAnimation[i].mirrorHorizontally();
+        }
+        isFacingRight = !isFacingRight;
     }
 }
