@@ -33,7 +33,7 @@ public class Food extends Actor
         eatSound.play();
 
         // respawn apple at top
-        setLocation(Greenfoot.getRandomNumber(getWorld().getWidth()), 1);
+        setLocation(Greenfoot.getRandomNumber(getWorld().getWidth()-1)+1, 1);
 
         // increment score
         ((Game)getWorld()).incrementScore();
