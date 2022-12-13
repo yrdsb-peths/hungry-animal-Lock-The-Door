@@ -31,15 +31,17 @@ public class Game extends World
     {
         Animal animal = new Animal();
         addObject(animal,getWidth()/2,getHeight()-50);
-        spawnApple();
+        spawnFood();
         addObject(scoreLabel,200,174);
         scoreLabel.setLocation(20,25);
+        TimerLabel timerLabel = new TimerLabel(60, () -> {endGame(); return null;});
+        addObject(timerLabel,getWidth()-30,25);
     }
 
-    public void spawnApple()
+    public void spawnFood()
     {
         Food food = new Food();
-        addObject(food,Greenfoot.getRandomNumber(getWidth()-1)+1,0);
+        addObject(food,Greenfoot.getRandomNumber(getWidth()),0);
     }
 
     public void incrementScore()

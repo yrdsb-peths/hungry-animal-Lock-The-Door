@@ -64,18 +64,18 @@ public class Animal extends Actor
         isFacingRight = !isFacingRight;
     }
 
-    public void eat(Apple apple)
+    public void eat()
     {
-        Game world = (Game)getWorld();
+        Game world = getWorldOfType(Game.class);
 
         // play noise
         eatSound.play();
 
         // remove apple
-        removeTouching(Apple.class);
+        removeTouching(Food.class);
 
         // spawn new apple at top
-        world.spawnApple();
+        world.spawnFood();
 
         // increment score
         world.incrementScore();
