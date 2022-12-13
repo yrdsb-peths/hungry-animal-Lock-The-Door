@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Game extends World
 {
+    int speed = 5;
     int score = 0;
     Label scoreLabel = new Label(0, 50);
 
@@ -56,6 +57,9 @@ public class Game extends World
         // reposition text
         int offset = String.valueOf(score).length() * 10;
         scoreLabel.setLocation(offset+10,25);
+
+        // increase speed
+        speed = 5 + score/10;
     }
 
     public void endGame()

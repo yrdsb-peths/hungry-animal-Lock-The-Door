@@ -14,10 +14,12 @@ public class Food extends Actor
      */
     public void act() 
     {
-        setLocation(getX(), getY() + 5);
+        Game world = getWorldOfType(Game.class);
+
+        setLocation(getX(), getY() + world.speed);
 
         // Player misses apple (Game Over)
         if (getY() >= getWorld().getHeight()-1)
-            getWorldOfType(Game.class).endGame();
+            world.endGame();
     }
 }

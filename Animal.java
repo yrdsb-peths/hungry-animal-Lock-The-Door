@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Animal extends Actor
 {
-    int SPEED = 10;
     GreenfootImage[] animalAnimation = new GreenfootImage[8];
     GreenfootSound eatSound = new GreenfootSound("sounds/elephantcub.mp3");
     
@@ -30,15 +29,16 @@ public class Animal extends Actor
      */
     public void act()
     {
+        Game world = getWorldOfType(Game.class);
         if (Greenfoot.isKeyDown("left"))
         {
-            move(-SPEED);
+            move(-world.speed);
             if (isFacingRight)
                 flip();
         }
         if (Greenfoot.isKeyDown("right"))
         {
-            move(SPEED);
+            move(world.speed);
             if (!isFacingRight)
                 flip();
         }
