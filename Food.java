@@ -17,7 +17,7 @@ public class Food extends Actor
         setLocation(getX(), getY() + 5);
 
         // Player misses apple (Game Over)
-        if (isAtEdge())
-            ((Game)getWorld()).endGame();
+        if (getY() >= getWorld().getHeight()-1)
+            getWorldOfType(Game.class).endGame();
     }
 }
