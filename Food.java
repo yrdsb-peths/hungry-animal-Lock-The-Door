@@ -6,20 +6,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Food extends Actor
+public class Food extends FallingObject
 {
-    /**
-     * Act - do whatever the food wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+    public Food()
     {
-        Game world = getWorldOfType(Game.class);
+        super();
 
-        setLocation(getX(), getY() + world.speed);
-
-        // Player misses apple (Game Over)
-        if (getY() >= getWorld().getHeight()-1)
-            world.endGame();
+        // pick random food image
+        int foodNumber = Greenfoot.getRandomNumber(3);
+        String foodImage = "images/foods/" + foodNumber + ".png";
+        GreenfootImage image = new GreenfootImage(foodImage);
+        image.scale(50,50);
+        setImage(image);
     }
 }

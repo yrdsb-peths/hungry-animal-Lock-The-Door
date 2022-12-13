@@ -29,16 +29,25 @@ public class Animal extends Actor
      */
     public void act()
     {
-        Game world = getWorldOfType(Game.class);
+        // Try to get world speed
+        int speed;
+        try {
+            Game world = getWorldOfType(Game.class);
+            speed = world.speed;
+        }
+        catch (Exception e) {
+            speed = 2;
+        }
+
         if (Greenfoot.isKeyDown("left"))
         {
-            move(-world.speed);
+            move(-speed);
             if (isFacingRight)
                 flip();
         }
         if (Greenfoot.isKeyDown("right"))
         {
-            move(world.speed);
+            move(speed);
             if (!isFacingRight)
                 flip();
         }
