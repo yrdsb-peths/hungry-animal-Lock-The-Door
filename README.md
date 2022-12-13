@@ -17,3 +17,4 @@ This particular repository is the starting template for the Hungry Elephant tuto
 ## My extra features:
 - Bonus Time
 - More food assets
+- Restarting the game from a game over screen
