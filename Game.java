@@ -30,7 +30,7 @@ public class Game extends World
     private void prepare()
     {
         Animal animal = new Animal();
-        addObject(animal,getWidth()/2,getHeight()-30);
+        addObject(animal,getWidth()/2,getHeight()-50);
         spawnApple();
         addObject(scoreLabel,200,174);
         scoreLabel.setLocation(20,25);

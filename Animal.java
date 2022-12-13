@@ -20,6 +20,7 @@ public class Animal extends Actor
         for (int i=0; i<animalAnimation.length; i++)
         {
             animalAnimation[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+            animalAnimation[i].scale(75,75);
         }
     }
     
@@ -42,14 +43,20 @@ public class Animal extends Actor
                 flip();
         }
 
-        // next frame
-        setImage(animalAnimation[animationFrame++]);
-        if (animationFrame >= animalAnimation.length)
+        // next frame (new frame every 5 updates)
+        int actualFrame = animationFrame++/5;
+        setImage(animalAnimation[actualFrame]);
+        if (actualFrame >= animalAnimation.length-1)
             animationFrame = 0;
+            
+        //try to eat
+        if (isTouching(Food.class))
+            eat();
     }
     
     private void flip()
     {
+        // movement
         for (int i=0; i<animalAnimation.length; i++)
         {
             animalAnimation[i].mirrorHorizontally();
