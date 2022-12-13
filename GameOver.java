@@ -36,5 +36,17 @@ public class GameOver extends World
         String scoreText = "Your Score: " + score;
         Label scoreLabel = new Label(scoreText, 50);
         addObject(scoreLabel,getWidth()/2,getHeight()/2+50);
+
+        Label startLabel = new Label("Press Space to Restart", 50);
+        startLabel.setFillColor(Color.BLACK);
+        addObject(startLabel,getWidth()/2,getHeight()-50);
+    }
+
+    public void act()
+    {
+        if (Greenfoot.isKeyDown("space"))
+        {
+            Greenfoot.setWorld(new Game());
+        }
     }
 }

@@ -16,7 +16,7 @@ public class Food extends FallingObject
         int foodNumber = Greenfoot.getRandomNumber(3);
         String foodImage = "images/foods/" + foodNumber + ".png";
         GreenfootImage image = new GreenfootImage(foodImage);
-        image.scale(50,50);
+        image.scale(100,100);
         setImage(image);
     }
 

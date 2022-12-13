@@ -11,6 +11,7 @@ public class BonusTime extends FallingObject
     public BonusTime()
     {
         super(new GreenfootSound("sounds/blip.mp3"));
+        getImage().scale(100, 100);
     }
 
     protected int getSpeed(Game world)
