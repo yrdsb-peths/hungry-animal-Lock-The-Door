@@ -74,7 +74,7 @@ public class Game extends World
         scoreLabel.setLocation(offset+10,25);
 
         // increase speed
-        speed = 5 + score/10;
+        speed = speed/15 + 5;
     }
 
     public void addTime(int seconds)
