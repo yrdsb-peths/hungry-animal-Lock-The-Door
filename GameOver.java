@@ -31,6 +31,7 @@ public class GameOver extends World
     private void prepare()
     {
         Label gameOverLabel = new Label("Game Over", 100);
+        gameOverLabel.setFillColor(Color.BLACK);
         addObject(gameOverLabel,getWidth()/2,getHeight()/2-50);
         String scoreText = "Your Score: " + score;
         Label scoreLabel = new Label(scoreText, 50);
