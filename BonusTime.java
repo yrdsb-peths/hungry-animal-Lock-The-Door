@@ -23,6 +23,6 @@ public class BonusTime extends FallingObject
     {
         // add time
         Game world = getWorldOfType(Game.class);
-        world.addTime(10);
+        world.addTime(5);
     }
 }

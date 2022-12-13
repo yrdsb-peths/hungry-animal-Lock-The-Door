@@ -54,7 +54,7 @@ public class Game extends World
     }
     public void spawnBonusChance()
     {
-        if (Greenfoot.getRandomNumber(Math.max(timerLabel.getTime()/2, 10)) == 0)
+        if (Greenfoot.getRandomNumber(Math.max(timerLabel.getTime()/3, 10)) == 0)
         {
             spawnBonus();
         }
