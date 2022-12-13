@@ -10,6 +10,7 @@ public class Animal extends Actor
 {
     int SPEED = 10;
     GreenfootImage[] animalAnimation = new GreenfootImage[8];
+    GreenfootSound eatSound = new GreenfootSound("sounds/elephantcub.mp3");
     
     int animationFrame = 0;
     boolean isFacingRight = true;
@@ -54,5 +55,22 @@ public class Animal extends Actor
             animalAnimation[i].mirrorHorizontally();
         }
         isFacingRight = !isFacingRight;
+    }
+
+    public void eat(Apple apple)
+    {
+        Game world = (Game)getWorld();
+
+        // play noise
+        eatSound.play();
+
+        // remove apple
+        removeTouching(Apple.class);
+
+        // spawn new apple at top
+        world.spawnApple();
+
+        // increment score
+        world.incrementScore();
     }
 }
