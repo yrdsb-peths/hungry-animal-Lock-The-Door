@@ -10,7 +10,7 @@ public class Food extends FallingObject
 {
     public Food()
     {
-        super();
+        super(new GreenfootSound("sounds/elephantcub.mp3"));
 
         // pick random food image
         int foodNumber = Greenfoot.getRandomNumber(3);
@@ -18,5 +18,24 @@ public class Food extends FallingObject
         GreenfootImage image = new GreenfootImage(foodImage);
         image.scale(50,50);
         setImage(image);
+    }
+
+    protected void eat()
+    {
+        // add score
+        Game world = getWorldOfType(Game.class);
+        world.incrementScore();
+
+        // spawn new food
+        world.spawnFood();
+
+        // random chance to spawn bonus
+        world.spawnBonusChance();
+    }
+
+    protected void miss()
+    {
+        Game world = getWorldOfType(Game.class);
+        world.endGame();
     }
 }

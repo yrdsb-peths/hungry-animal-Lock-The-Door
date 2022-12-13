@@ -50,4 +50,14 @@ public class TimerLabel extends Label
             }
         }
     }
+
+    public void addTime(int seconds)
+    {
+        time += seconds;
+    }
+
+    public int getTime()
+    {
+        return time;
+    }
 }

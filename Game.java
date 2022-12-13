@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -11,6 +13,7 @@ public class Game extends World
     int speed = 5;
     int score = 0;
     Label scoreLabel = new Label(0, 50);
+    TimerLabel timerLabel = new TimerLabel(60, () -> {endGame(); return null;});
 
     /**
      * Constructor for objects of class MyWorld.
@@ -35,7 +38,6 @@ public class Game extends World
         spawnFood();
         addObject(scoreLabel,200,174);
         scoreLabel.setLocation(20,25);
-        TimerLabel timerLabel = new TimerLabel(60, () -> {endGame(); return null;});
         addObject(timerLabel,getWidth()-30,25);
     }
 
@@ -43,6 +45,19 @@ public class Game extends World
     {
         Food food = new Food();
         addObject(food,Greenfoot.getRandomNumber(getWidth()),0);
+    }
+
+    public void spawnBonus()
+    {
+        BonusTime bonus = new BonusTime();
+        addObject(bonus,Greenfoot.getRandomNumber(getWidth()),0);
+    }
+    public void spawnBonusChance()
+    {
+        if (Greenfoot.getRandomNumber(Math.max(timerLabel.getTime(), 10)) == 0)
+        {
+            spawnBonus();
+        }
     }
 
     public void incrementScore()
@@ -62,8 +77,28 @@ public class Game extends World
         speed = 5 + score/10;
     }
 
+    public void addTime(int seconds)
+    {
+        timerLabel.addTime(seconds);
+    }
+
+    public ArrayList<Actor> removingActors = new ArrayList<Actor>();
+    public void removeDelayed(Actor actor)
+    {
+        removingActors.add(actor);
+    }
+
     public void endGame()
     {
         Greenfoot.setWorld(new GameOver(score));
+    }
+
+    public void act()
+    {
+        for (Actor actor : removingActors)
+        {
+            removeObject(actor);
+        }
+        removingActors.clear();
     }
 }

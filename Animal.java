@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Animal extends Actor
 {
     GreenfootImage[] animalAnimation = new GreenfootImage[8];
-    GreenfootSound eatSound = new GreenfootSound("sounds/elephantcub.mp3");
     
     int animationFrame = 0;
     boolean isFacingRight = true;
@@ -33,7 +32,7 @@ public class Animal extends Actor
         int speed;
         try {
             Game world = getWorldOfType(Game.class);
-            speed = world.speed;
+            speed = world.speed*2;
         }
         catch (Exception e) {
             speed = 2;
@@ -57,10 +56,6 @@ public class Animal extends Actor
         setImage(animalAnimation[actualFrame]);
         if (actualFrame >= animalAnimation.length-1)
             animationFrame = 0;
-            
-        //try to eat
-        if (isTouching(Food.class))
-            eat();
     }
     
     private void flip()
@@ -71,22 +66,5 @@ public class Animal extends Actor
             animalAnimation[i].mirrorHorizontally();
         }
         isFacingRight = !isFacingRight;
-    }
-
-    public void eat()
-    {
-        Game world = getWorldOfType(Game.class);
-
-        // play noise
-        eatSound.play();
-
-        // remove apple
-        removeTouching(Food.class);
-
-        // spawn new apple at top
-        world.spawnFood();
-
-        // increment score
-        world.incrementScore();
     }
 }

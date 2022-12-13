@@ -8,28 +8,50 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FallingObject extends Actor
 {
+    GreenfootSound eatSound;
+
+    public FallingObject(GreenfootSound eatSound)
+    {
+        this.eatSound = eatSound;
+    }
+
     /**
      * Act - do whatever the FallingObject wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        fall();
+        Game world = getWorldOfType(Game.class);
+        setLocation(getX(), getY() + getSpeed(world));
+
+        // Player eats
+        if (isTouching(Animal.class))
+        {
+            // specific to each falling object
+            this.eat();
+
+            // same across all falling objects
+            eatSound.play();
+            world.removeDelayed(this);
+        }
 
         // Player misses
-        if (getY() >= getWorld().getHeight()-1)
+        if (getY() >= world.getHeight()-1)
             miss();
     }
 
-    public void fall()
+    protected int getSpeed(Game world)
     {
-        Game world = getWorldOfType(Game.class);
-        setLocation(getX(), getY() + world.speed);
+        return world.speed;
     }
 
-    public void miss()
+    protected void eat()
     {
-        Game world = getWorldOfType(Game.class);
-        world.endGame();
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+
+    protected void miss()
+    {
+        return;
     }
 }
