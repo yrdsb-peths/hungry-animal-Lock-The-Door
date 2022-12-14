@@ -18,9 +18,12 @@ public class Title extends World
     public Title()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 400, 1);
+        GreenfootSound music = new GreenfootSound("alliwant.mp3");
+        music.playLoop();
         prepare();
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -39,6 +42,8 @@ public class Title extends World
 
         Label instructionsLabel = new Label("Use \u2190 and \u2192 to move\nand eat the apples!", 40);
         addObject(instructionsLabel,getWidth()/2,getHeight()/2+60);
+
+    
     }
 
     boolean isStartLabelVisible = true;

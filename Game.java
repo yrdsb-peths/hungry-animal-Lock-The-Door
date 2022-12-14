@@ -23,7 +23,9 @@ public class Game extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
+        
         prepare();
+        
     }
 
     
@@ -33,12 +35,14 @@ public class Game extends World
      */
     private void prepare()
     {
+        
         Animal animal = new Animal();
         addObject(animal,getWidth()/2,getHeight()-50);
         spawnFood();
         addObject(scoreLabel,200,174);
         scoreLabel.setLocation(20,25);
         addObject(timerLabel,getWidth()-30,25);
+        
     }
 
     public void spawnFood()
