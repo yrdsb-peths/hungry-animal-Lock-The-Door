@@ -19,7 +19,7 @@ public class Title extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        GreenfootSound music = new GreenfootSound("christmas.mp3");
+        GreenfootSound music = new GreenfootSound("alliwant.mp3");
         music.playLoop();
         prepare();
     }
@@ -43,8 +43,7 @@ public class Title extends World
         Label instructionsLabel = new Label("Use \u2190 and \u2192 to move\nand eat the apples!", 40);
         addObject(instructionsLabel,getWidth()/2,getHeight()/2+60);
 
-        GreenfootSound music = new GreenfootSound("christmas.mp3");
-        music.playLoop();
+    
     }
 
     boolean isStartLabelVisible = true;
