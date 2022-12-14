@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=BonusTime
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ BonusTime\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=BonusTime()
+comment2.params=world
+comment2.target=int\ getSpeed(Game)
+comment3.params=
+comment3.target=void\ eat()
+numComments=4
